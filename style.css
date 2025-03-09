@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ff8c42; /* Orange background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px; /* Add padding for smaller screens */
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Limit maximum width for larger screens */
+}
+
+h1 {
+    font-size: 2rem; /* Smaller font size for mobile */
+    margin-bottom: 10px;
+}
+
+.score-container, .timer-container {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Use fractional units for responsiveness */
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    background-color: #ff6f00; /* Darker orange grid background */
+    padding: 10px;
+    border-radius: 10px;
+    aspect-ratio: 1; /* Ensure the grid is square */
+}
+
+.grid div {
+    background-color: #ffa64d; /* Orange tile color */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    font-weight: bold;
+    color: #fff; /* White text for better contrast */
+    aspect-ratio: 1; /* Ensure tiles are square */
+}
+
+.game-over {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    margin-top: 10px;
+    display: none;
+}
+
+/* Logo styling */
+.logo-container {
+    position: absolute;
+    top: 10px; /* Adjust for smaller screens */
+    left: 10px;
+    z-index: 10;
+}
+
+.logo {
+    width: 80px; /* Smaller logo for mobile */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Slightly enlarge the logo on hover */
+}
+
+/* Flip animation for tiles */
+@keyframes flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.flip-animation {
+    animation: flip 0.5s ease-in-out;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem; /* Smaller font size for very small screens */
+    }
+
+    .score-container, .timer-container {
+        font-size: 1rem; /* Smaller font size for very small screens */
+    }
+
+    .grid div {
+        font-size: 1.2rem; /* Smaller font size for very small screens */
+    }
+
+    .game-over {
+        font-size: 1.2rem; /* Smaller font size for very small screens */
+    }
+
+    .logo {
+        width: 60px; /* Smaller logo for very small screens */
+    }
+}
